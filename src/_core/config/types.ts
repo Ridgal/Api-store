@@ -9,6 +9,7 @@ export interface ApplicationConfigurations {
   app: {
     port: number;
     globalPrefix: string;
+    isActiveSwagger: boolean;
   };
   auth: {
     jwtAccessSecret: string,

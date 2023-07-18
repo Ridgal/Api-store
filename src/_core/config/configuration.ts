@@ -15,6 +15,7 @@ export default (): ApplicationConfigurations => {
     app: {
       port: +process.env.APP_PORT,
       globalPrefix: process.env.APP_GLOBAL_PREFIX,
+      isActiveSwagger: JSON.parse(process.env.APP_FEATURE_SWAGGER),
     },
     auth: {
       jwtAccessSecret: process.env.APP_JWT_ACCESS_SECRET,
