@@ -20,13 +20,13 @@ async function bootstrap() {
   app.enableCors();
 
   // Init swagger
-  if (config.app.isActiveSwagger) {
-    SwaggerModule.setup(
-      resolve(config.app.globalPrefix, 'swagger'),
-      app,
-      SwaggerModule.createDocument(app, swaggerConfig),
-    );
-  };
+  // if (config.app.isActiveSwagger) {
+  //   SwaggerModule.setup(
+  //     resolve(config.app.globalPrefix, 'swagger'),
+  //     app,
+  //     SwaggerModule.createDocument(app, swaggerConfig),
+  //   );
+  // };
 
   await app.listen(config.app.port);
 };
