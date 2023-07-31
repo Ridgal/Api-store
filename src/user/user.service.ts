@@ -63,7 +63,7 @@ export class UserService {
         name: dto.name,
         phone: dto.phone,
       }
-    })
+    });
   };
 
   async toggleFavorite(userId: number, productId: number) {
@@ -91,4 +91,4 @@ export class UserService {
 
     return 'Success';
   };
-}
+};

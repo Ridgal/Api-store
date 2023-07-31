@@ -16,7 +16,7 @@ export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private jwt: JwtService,
-  ) {}
+  ) {};
 
   async login(dto: AuthDto) {
     const user = await this.validateUser(dto);
@@ -63,7 +63,7 @@ export class AuthService {
       data: {
         email: dto.email,
         name: faker.person.firstName(),
-        phone: faker.phone.number('+7###-###-##-##'),
+        phone: faker.phone.number('+7(###)-###-##-##'),
         password: await bcrypt.hash(dto.password, 10)
       }
     });

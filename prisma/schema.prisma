@@ -39,7 +39,7 @@ model Product {
   orderItems OrderItem[]
   reviews    Review[]
 
-  Category   Category? @relation(fields: [categoryId], references: [id])
+  category   Category? @relation(fields: [categoryId], references: [id])
   categoryId Int?      @map("category_id")
 
   user   User? @relation(fields: [userId], references: [id])
@@ -52,6 +52,7 @@ model Category {
   updateAt  DateTime @updatedAt @map("updated_at")
 
   name String @unique
+  slug String @unique
 
   products Product[]
 }

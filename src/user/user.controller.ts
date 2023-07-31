@@ -21,6 +21,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get(ROUTER.PATH.PROFILE)
+  @HttpCode(200)
   @Auth()
   async getProfile(@CurrentUser('id') id: number) {
     return this.userService.byId(id);
