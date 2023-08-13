@@ -5,6 +5,8 @@ export const ROUTER = {
     REFRESH: 'refresh'
   },
   PATH: {
-    PROFILE: 'profile'
+    PROFILE: 'profile',
+    CATEGORIES: 'categories',
+    REVIEW: 'review'
   }
 };

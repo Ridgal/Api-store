@@ -23,8 +23,6 @@ model User {
   favorites Product[]
 }
 
-// Product Order OrderItem Category Review
-
 model Product {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now()) @map("created_at")
@@ -98,6 +96,8 @@ model OrderItem {
 
   product   Product? @relation(fields: [productId], references: [id])
   productId Int      @map("product_id")
+
+  @@map("Order_item")
 }
 
 enum EnumOrderStatus {

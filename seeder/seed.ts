@@ -1,7 +1,5 @@
 import { faker } from "@faker-js/faker";
 import { PrismaClient, Product } from "@prisma/client";
-// import { generateSlug } from "src/_utils/helpers/generate-slug";
-// import { getRandomNumber } from "src/_utils/helpers/ramdom-number";
 
 const prisma = new PrismaClient();
 
@@ -15,31 +13,31 @@ const createProduct = async (quantity: number) => {
     const product = await prisma.product.create({
       data: {
         name: productName,
-        slug: faker.helpers.slugify(productName),
+        slug: faker.helpers.slugify(productName).toLowerCase(),
         description: faker.commerce.productDescription(),
-        price: +faker.commerce.price(10, 999, 0),
-        images: Array.from({length: faker.datatype.number({ min: 2, max: 6 })}).map(() =>
-          faker.image.imageUrl()),
+        price: +faker.commerce.price({ min: 10, max: 999, dec: 0 }),
+        images: Array.from({length: faker.number.int({ min: 2, max: 6 })}).map(() =>
+          faker.image.url()),
         category: {
           create: {
             name: categoryName,
-            slug: faker.helpers.slugify(categoryName)
+            slug: faker.helpers.slugify(categoryName).toLowerCase()
           }
         },
         reviews: {
           create: [
             {
               user: {
-                connect: { id: 2 }
+                connect: { id: 1 }
               },
-              rating: faker.datatype.number({ min: 1, max: 5 }),
+              rating: faker.number.int({ min: 1, max: 5 }),
               text: faker.lorem.paragraph()
             },
             {
               user: {
-                connect: { id: 2 }
+                connect: { id: 1 }
               },
-              rating: faker.datatype.number({ min: 1, max: 5 }),
+              rating: faker.number.int({ min: 1, max: 5 }),
               text: faker.lorem.paragraph()
             },
           ]
